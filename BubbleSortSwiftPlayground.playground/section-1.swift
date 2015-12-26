@@ -14,7 +14,6 @@ func bubbleSort(var a: Array<Int>) -> Array<Int>
         for j in 0..<passes
         {
             key = a[j]
-            //compare and rank values 
             if (key > a[j + 1])
             {
                 temp = a[j + 1]
