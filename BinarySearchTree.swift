@@ -51,5 +51,46 @@ public class AVLTree<T: Comparable>
                 self.right = rightChild
             }
         }//end if
-    }//end function 
-} //end class - See more at: http://waynewbishop.com/swift/binary-search-trees/#sthash.wdSsEsnu.dpuf
+    }//end function
+    //retrieve the height of a node 
+    func getNodeHeight(aNode: AVLTree!) -> Int
+    { if (aNode == nil)
+    {
+        return -1
+    } else
+    {
+        return aNode.height
+        }
+    }
+    //calculate the height of a node 
+    func setNodeHeight() -> Bool {
+        //check for a nil condition 
+        if (self.key == nil)
+        {
+            println("no key provided..")
+            return false
+        }
+        //set height variable 
+        var nodeHeight: Int = 0
+        //compare and calculate node height 
+        nodeHeight = max(getNodeHeight(self.left), getNodeHeight(self.right)) + 1
+        self.height = nodeHeight
+        return true
+    }
+    func isTreeBalanced() -> Bool {
+        //check for a nil condition 
+        if (self.key == nil)
+        {
+            println("no key provided..")
+            return false }
+        //use absolute value to calculate right / left imbalances 
+        if (abs(getNodeHeight(self.left) - getNodeHeight(self.right)) <= 1)
+        { return true
+        }
+        else
+        {
+            return false
+        }
+    } //end function 
+   
+} //end class
